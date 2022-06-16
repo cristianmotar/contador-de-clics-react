@@ -1,5 +1,6 @@
 import './App.css';
 import Boton from './components/Boton';
+import Contador from './components/Contador';
 import logotipo from './img/logotipo.png';
 
 function App() {
@@ -24,14 +25,15 @@ function App() {
       </div>
 
       <div className='contenedor-principal'>
+        <Contador numClics={5}/>
         <Boton
           texto='Clic'
           esBotonDeClic={true}
-          manejarClic={manejarClic}/>
+          manejarClic={manejarClic} />
         <Boton
           texto='Reiniciar'
           esBotonDeClic={false}
-          manejarClic={reiniciarContador}/>  
+          manejarClic={reiniciarContador} />  
       </div>
 
     </div>
