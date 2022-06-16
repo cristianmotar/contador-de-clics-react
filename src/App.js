@@ -2,16 +2,19 @@ import './App.css';
 import Boton from './components/Boton';
 import Contador from './components/Contador';
 import logotipo from './img/logotipo.png';
+import { useState } from 'react'; //hook para cambiar el contador
 
 function App() {
 
+  const [numClics, setNumClics] = useState(0); // valor inicial del contador
+
   const manejarClic = () => {
-    console.log('Clic');
-  }
+    setNumClics(numClics + 1);
+  };
 
   const reiniciarContador = () => {
-    console.log('Reiniciar');
-  }
+    setNumClics(0);
+  };
 
   return (
     <div className="App">
@@ -25,7 +28,8 @@ function App() {
       </div>
 
       <div className='contenedor-principal'>
-        <Contador numClics={5}/>
+
+        <Contador numClics={numClics}/>
         <Boton
           texto='Clic'
           esBotonDeClic={true}
@@ -34,6 +38,7 @@ function App() {
           texto='Reiniciar'
           esBotonDeClic={false}
           manejarClic={reiniciarContador} />  
+          
       </div>
 
     </div>
